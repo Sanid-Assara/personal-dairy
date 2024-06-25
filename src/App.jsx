@@ -5,7 +5,13 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Header></Header>
+      <Cards></Cards>
+      <Footer></Footer>
+    </>
+  );
 }
 
 export default App;
