@@ -1,6 +1,6 @@
 import { Component, useState } from "react";
 import Header from "./components/Header";
-import Cards from "./components/Cards";
+import CardsList from "./components/CardsList";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header></Header>
-      <Cards></Cards>
+      <CardsList></CardsList>
       <Footer></Footer>
     </>
   );
