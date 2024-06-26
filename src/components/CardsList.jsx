@@ -1,23 +1,41 @@
+import React, { useState, useEffect } from "react";
 import Card from "./Card";
 const CardsList = () => {
-  const localStorageData = [
-    { id: 1, title: "title A", date: "2024-06-25" },
-    { id: 2, title: "title B", date: "2024-06-24" },
-    { id: 3, title: "title C", date: "2024-06-23" },
-    { id: 4, title: "title Z", date: "2024-06-20" },
-  ];
+  // const localStorageData = [
+  //   { id: 1, title: "title A", date: new Date("2019-06-25") },
+  //   { id: 2, title: "title B", date: new Date("2020-06-24") },
+  //   { id: 3, title: "title C", date: new Date("2024-06-23") },
+  //   { id: 4, title: "title D", date: new Date("2024-04-10") },
+  //   { id: 5, title: "title F", date: new Date("2024-05-23") },
+  //   { id: 6, title: "title Z", date: new Date("2024-06-26") },
+  // ];
+  // localStorage.setItem("dairyCards", JSON.stringify(localStorageData));
 
-  console.log(localStorageData[0].id);
+  const [data, setData] = useState([]);
 
-  localStorage.setItem("dairyCards", JSON.stringify(localStorageData));
+  useEffect(() => {
+    const loadData = () => {
+      const localStorageData = localStorage.getItem("dairyCards");
+      if (localStorageData) {
+        const parsedData = JSON.parse(localStorageData);
+        const sortedData = [...parsedData].sort((d1, d2) => {
+          return new Date(d2.date) - new Date(d1.date);
+        });
+        setData(sortedData);
+
+        console.log(parsedData, sortedData);
+      }
+    };
+
+    loadData();
+  }, []);
 
   return (
-    <main className="grid grid-cols-4 place-items-center p-8">
-      {localStorageData.map((card) => (
+    <main className="grid grid-cols-4 gap-4 place-items-center p-8 ">
+      {data.map((card) => (
         <Card key={card.id} title={card.title} date={card.date} />
       ))}
     </main>
   );
 };
-
 export default CardsList;

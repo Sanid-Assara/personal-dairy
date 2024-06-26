@@ -1,6 +1,6 @@
 const Card = ({ id, title, date, url }) => {
   return (
-    <div className="flex flex-col gap-1 max-w-52">
+    <div className="flex flex-col gap-1 max-w-52 mb-4">
       <figure>
         <img src="https://picsum.photos/200" alt="" />
       </figure>
