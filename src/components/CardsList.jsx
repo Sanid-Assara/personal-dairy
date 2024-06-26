@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
+import CardModal from "./CardModal";
 const CardsList = () => {
   // const localStorageData = [
   //   { id: 1, title: "title A", date: new Date("2019-06-25") },
@@ -12,6 +13,8 @@ const CardsList = () => {
   // localStorage.setItem("dairyCards", JSON.stringify(localStorageData));
 
   const [data, setData] = useState([]);
+  const [selectedEntry, setSelectedEntry] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const loadData = () => {
@@ -30,11 +33,30 @@ const CardsList = () => {
     loadData();
   }, []);
 
+  const handleCardClick = (card) => {
+    setSelectedEntry(card);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedEntry(null);
+  };
+
   return (
     <main className="grid grid-cols-4 gap-4 place-items-center p-8 ">
       {data.map((card) => (
-        <Card key={card.id} title={card.title} date={card.date} />
+        <Card
+          key={card.id}
+          title={card.title}
+          date={card.date}
+          card={card}
+          onClick={() => handleCardClick(card)}
+        />
       ))}
+      {isModalOpen && (
+        <CardModal card={selectedEntry} onClose={handleCloseModal} />
+      )}
     </main>
   );
 };
