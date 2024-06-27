@@ -4,7 +4,7 @@ const CardModal = ({ card, onClose }) => {
     <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg  w-full max-w-md mx-auto">
         <img
-          src="https://picsum.photos/200"
+          src={card.imageUrl}
           alt={card.title}
           className="w-full h-48 object-cover mb-4"
         />
@@ -17,7 +17,7 @@ const CardModal = ({ card, onClose }) => {
         <h2 className="text-2xl font-semibold mb-2">{card.title}</h2>
         <time className="text-gray-600 mb-4">{card.date}</time>
         <section>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p>{card.content}</p>
         </section>
       </div>
     </div>,

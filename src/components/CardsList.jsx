@@ -19,7 +19,7 @@ const CardsList = () => {
   useEffect(() => {
     const loadData = () => {
       const localStorageData = localStorage.getItem("dairyCards");
-      console.log(localStorageData);
+
       if (localStorageData) {
         const parsedData = JSON.parse(localStorageData);
         const sortedData = [...parsedData].sort((d1, d2) => {
@@ -43,12 +43,14 @@ const CardsList = () => {
   };
 
   return (
-    <main className="grid grid-cols-4 gap-4 place-items-center p-8 ">
+    <main className="grid grid-cols-4 gap-4 place-items-center p-8 pt-40 pb-28">
       {data.map((card) => (
         <Card
           key={card.id}
+          id={card.id}
           title={card.title}
           date={card.date}
+          imageUrl={card.imageUrl}
           card={card}
           onClick={() => handleCardClick(card)}
         />
@@ -56,7 +58,6 @@ const CardsList = () => {
       {isModalOpen && (
         <CardModal card={selectedCard} onClose={handleCloseModal} />
       )}
-      {console.log(data)}
     </main>
   );
 };
