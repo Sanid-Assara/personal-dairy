@@ -43,7 +43,7 @@ const CardsList = () => {
   };
 
   return (
-    <main className="grid grid-cols-4 gap-4 place-items-center p-8 pt-40 pb-28">
+    <main className="z-30 grid grid-cols-4 gap-4 place-items-center p-8 pt-40 pb-28">
       {data.map((card) => (
         <Card
           key={card.id}

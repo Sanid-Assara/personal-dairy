@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-slate-900 flex items-center justify-between  mx-auto py-8 px-4 fixed h-20  w-full">
+      <header className="z-40 bg-slate-900 flex items-center justify-between  mx-auto py-8 px-4 fixed h-20  w-full">
         <p className="text-white">Personal Dairy</p>
         <button
           onClick={() => setIsModalOpen(true)}
