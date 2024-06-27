@@ -15,6 +15,12 @@ const AddEntryModal = ({ isOpen, onClose, onAddEntry }) => {
       return;
     }
 
+    const today = new Date().toISOString().split("T")[0];
+    if (date > today) {
+      setError("The date cannot be in the future. Please select a valid date.");
+      return;
+    }
+
     const entries = JSON.parse(localStorage.getItem("dairyCards")) || [];
     const alreadyExists = entries.some((entry) => entry.date === date);
 
@@ -43,7 +49,7 @@ const AddEntryModal = ({ isOpen, onClose, onAddEntry }) => {
   }, [isOpen]);
 
   if (!isOpen) return null;
-  // return <button className="bg-red-800 text-white p-4">Add an Entry</button>;
+
   return (
     <div className="z-50 fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">

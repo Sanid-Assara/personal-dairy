@@ -6,7 +6,7 @@ const CardModal = ({ card, onClose }) => {
         <img
           src={card.imageUrl}
           alt={card.title}
-          className="w-full h-48 object-cover mb-4"
+          className=" h-60 w-60 object-cover mb-4"
         />
         <button
           className="absolute top-0 right-0  text-lg m-4 text-white bg-red-700 rounded-full"

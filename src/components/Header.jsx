@@ -1,17 +1,8 @@
+import React, { useState } from "react";
 import AddEntryModal from "./AddEntryModal";
-import React, { useState, useEffect } from "react";
-const Header = () => {
+
+const Header = ({ onAddEntry }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [entries, setEntries] = useState([]);
-
-  useEffect(() => {
-    const savedEntries = JSON.parse(localStorage.getItem("entries")) || [];
-    setEntries(savedEntries);
-  }, []);
-
-  const handleAddEntry = (newEntry) => {
-    setEntries([...entries, newEntry]);
-  };
 
   return (
     <>
@@ -27,7 +18,7 @@ const Header = () => {
         <AddEntryModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          onAddEntry={handleAddEntry}
+          onAddEntry={onAddEntry}
         />
       </header>
     </>
