@@ -13,20 +13,19 @@ const CardsList = () => {
   // localStorage.setItem("dairyCards", JSON.stringify(localStorageData));
 
   const [data, setData] = useState([]);
-  const [selectedEntry, setSelectedEntry] = useState(null);
+  const [selectedCard, setSelectedCard] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const loadData = () => {
       const localStorageData = localStorage.getItem("dairyCards");
+      console.log(localStorageData);
       if (localStorageData) {
         const parsedData = JSON.parse(localStorageData);
         const sortedData = [...parsedData].sort((d1, d2) => {
           return new Date(d2.date) - new Date(d1.date);
         });
         setData(sortedData);
-
-        console.log(parsedData, sortedData);
       }
     };
 
@@ -34,13 +33,13 @@ const CardsList = () => {
   }, []);
 
   const handleCardClick = (card) => {
-    setSelectedEntry(card);
+    setSelectedCard(card);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    setSelectedEntry(null);
+    setSelectedCard(null);
   };
 
   return (
@@ -55,8 +54,9 @@ const CardsList = () => {
         />
       ))}
       {isModalOpen && (
-        <CardModal card={selectedEntry} onClose={handleCloseModal} />
+        <CardModal card={selectedCard} onClose={handleCloseModal} />
       )}
+      {console.log(data)}
     </main>
   );
 };
