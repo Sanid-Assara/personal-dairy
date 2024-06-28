@@ -95,13 +95,13 @@ const AddEntryModal = ({ isOpen, onClose, onAddEntry }) => {
             <button
               type="button"
               onClick={onClose}
-              className="bg-gray-500 text-white px-4 py-2 rounded mr-2"
+              className="bg-gray-600 text-white px-4 py-2 rounded mr-2 transition duration-300 ease-in-out hover:bg-red-800 hover:text-gray-100"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded"
+              className="bg-blue-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-blue-950 hover:text-gray-100"
             >
               Add Entry
             </button>
