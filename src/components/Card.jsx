@@ -1,7 +1,7 @@
 const Card = ({ id, title, date, imageUrl, onClick }) => {
   return (
     <div
-      className="flex flex-col  max-w-96 mb-4 bg-slate-900 rounded-tr-3xl rounded-bl-3xl"
+      className="flex flex-col  max-w-96  bg-slate-900 rounded-tr-3xl rounded-bl-3xl"
       onClick={onClick}
     >
       <figure className="rounded-tr-3xl h-96 w-96 object-cover">
