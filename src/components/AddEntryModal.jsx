@@ -17,7 +17,9 @@ const AddEntryModal = ({ isOpen, onClose, onAddEntry }) => {
 
     const today = new Date().toISOString().split("T")[0];
     if (date > today) {
-      setError("The date cannot be in the future. Please select a valid date.");
+      setError(
+        "The date must be today or before only. Please select a another date."
+      );
       return;
     }
 
@@ -26,7 +28,7 @@ const AddEntryModal = ({ isOpen, onClose, onAddEntry }) => {
 
     if (alreadyExists) {
       setError(
-        "An entry for this date already exists. Please try another date."
+        "An entry for this date already exists. Please return tomorrow."
       );
       return;
     }
@@ -52,7 +54,7 @@ const AddEntryModal = ({ isOpen, onClose, onAddEntry }) => {
 
   return (
     <div className="z-50 fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
-      <div className="bg-slate-900 p-6 rounded-xl shadow-xl w-full max-w-md font-sans">
+      <div className="bg-slate-900 p-6 rounded-tr-3xl rounded-bl-3xl shadow-xl w-full max-w-md font-sans">
         <h2 className="text-xl font-bold mb-4 text-gray-400">Add Entry</h2>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleSubmit}>
@@ -97,13 +99,13 @@ const AddEntryModal = ({ isOpen, onClose, onAddEntry }) => {
             <button
               type="button"
               onClick={onClose}
-              className="bg-gray-600 text-white px-4 py-2 rounded mr-2 transition duration-300 ease-in-out hover:bg-red-800 hover:text-gray-100 font-bold"
+              className="bg-gray-600 text-white px-4 py-2 rounded-tr-xl rounded-bl-xl mr-2 transition duration-300 ease-in-out hover:bg-red-800 hover:text-gray-100 font-bold"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="bg-blue-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-white hover:text-blue-800 font-bold hover:font-bold"
+              className="bg-blue-700 text-white px-4 py-2 rounded-tr-xl rounded-bl-xl transition duration-300 ease-in-out hover:bg-white hover:text-blue-800 font-bold hover:font-bold"
             >
               Add Entry
             </button>
