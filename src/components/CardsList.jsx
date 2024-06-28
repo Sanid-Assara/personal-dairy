@@ -17,7 +17,7 @@ const CardsList = ({ entries }) => {
   };
 
   return (
-    <main className="z-30 grid grid-cols-4 gap-4 place-items-center p-8 pt-40 pb-28">
+    <main className="z-30  flex flex-wrap justify-center  mx-auto gap-12 px-4 pt-40 pb-28 max-w-7xl ">
       {entries.map((card) => (
         <Card
           key={card.id}

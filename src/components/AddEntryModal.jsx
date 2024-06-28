@@ -51,57 +51,59 @@ const AddEntryModal = ({ isOpen, onClose, onAddEntry }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="z-50 fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-xl font-bold mb-4">Add Entry</h2>
+    <div className="z-50 fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
+      <div className="bg-slate-900 p-6 rounded-xl shadow-xl w-full max-w-md font-sans">
+        <h2 className="text-xl font-bold mb-4 text-gray-400">Add Entry</h2>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700">Title</label>
+            <label className="block text-gray-500 font-semibold">Title</label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="mt-1 p-2 border border-gray-300 rounded w-full"
+              className="mt-1 p-2 border border-slate-800 rounded w-full"
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Date</label>
+            <label className="block text-gray-500 font-semibold">Date</label>
             <input
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="mt-1 p-2 border border-gray-300 rounded w-full"
+              className="mt-1 p-2 border border-slate-800 rounded w-full"
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Image URL</label>
+            <label className="block text-gray-500 font-semibold">
+              Image URL
+            </label>
             <input
               type="text"
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
-              className="mt-1 p-2 border border-gray-300 rounded w-full"
+              className="mt-1 p-2 border border-slate-800 rounded w-full"
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Content</label>
+            <label className="block text-gray-500 font-semibold">Content</label>
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              className="mt-1 p-2 border border-gray-300 rounded w-full"
+              className="mt-1 p-2 border border-slate-800 rounded w-full"
             />
           </div>
           <div className="flex justify-end">
             <button
               type="button"
               onClick={onClose}
-              className="bg-gray-500 text-white px-4 py-2 rounded mr-2"
+              className="bg-gray-600 text-white px-4 py-2 rounded mr-2 transition duration-300 ease-in-out hover:bg-red-800 hover:text-gray-100 font-bold"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded"
+              className="bg-blue-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-white hover:text-blue-800 font-bold hover:font-bold"
             >
               Add Entry
             </button>
