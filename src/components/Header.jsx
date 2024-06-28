@@ -13,7 +13,7 @@ const Header = ({ onAddEntry }) => {
           </span>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="bg-orange-200 font-bold text-red-800 px-8 py-2 rounded border-2 border-red-800 transition duration-300 ease-in-out hover:bg-red-800 hover:text-white "
+            className="bg-orange-200 font-sans font-bold text-red-800 px-8 py-2 rounded border-2 border-red-800 transition duration-300 ease-in-out hover:bg-red-800 hover:text-white "
           >
             Add an Entry
           </button>
