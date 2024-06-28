@@ -95,7 +95,7 @@ const AddEntryModal = ({ isOpen, onClose, onAddEntry }) => {
               className="mt-1 p-2 border border-slate-800 rounded w-full"
             />
           </div>
-          <div className="flex justify-end">
+          <div className="flex gap-2 justify-end">
             <button
               type="button"
               onClick={onClose}
