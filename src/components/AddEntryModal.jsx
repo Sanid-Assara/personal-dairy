@@ -17,7 +17,9 @@ const AddEntryModal = ({ isOpen, onClose, onAddEntry }) => {
 
     const today = new Date().toISOString().split("T")[0];
     if (date > today) {
-      setError("The date cannot be in the future. Please select a valid date.");
+      setError(
+        "The date must be today or before only. Please select a another date."
+      );
       return;
     }
 
@@ -26,7 +28,7 @@ const AddEntryModal = ({ isOpen, onClose, onAddEntry }) => {
 
     if (alreadyExists) {
       setError(
-        "An entry for this date already exists. Please try another date."
+        "An entry for this date already exists. Please return tomorrow."
       );
       return;
     }
